@@ -1,14 +1,27 @@
 #include <math.h>
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
-    int Current_Altitude;
-    int Target_Altitude;
+int	calc(int current_alt, int target_alt);
 
-    sscanf(argv[1], "%d", &Current_Altitude);
-    sscanf(argv[2], "%d", &Target_Altitude);
+int	main(int argc, char *argv[])
+{
+	int	current_altitude;
+	int	target_altitude;
+	int	return_value;
 
-    double Required_distance = (Current_Altitude * 100 - Target_Altitude * 100) / tan(3 * (M_PI/180)) / 6076;
-    int a = round(Required_distance);
-    printf("Required Distance : %dnm\n", a);
+	sscanf(argv[1], "%d", &current_altitude);
+	sscanf(argv[2], "%d", &target_altitude);
+	return_value = calc(current_altitude, target_altitude);
+	printf("Required Distance : %dnm\n", return_value);
+	return (0);
+}
+
+int	calc(int current_alt, int target_alt)
+{
+	int	result;
+
+	result
+		= round(current_alt * 100 - target_alt * 100)
+		/ tan(3 * (M_PI / 180)) / 6076;
+	return (result);
 }
