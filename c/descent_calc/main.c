@@ -1,4 +1,3 @@
-#include <math.h>
 #include <stdio.h>
 
 int	calc(int current_alt, int target_alt);
@@ -16,12 +15,11 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
+//	((x-y)*100) / tan(3*(pi/180)) / 6076
 int	calc(int current_alt, int target_alt)
 {
 	int	result;
 
-	result
-		= round(current_alt * 100 - target_alt * 100)
-		/ tan(3 * (M_PI / 180)) / 6076;
+	result = (current_alt - target_alt) / 3.18;
 	return (result);
 }
